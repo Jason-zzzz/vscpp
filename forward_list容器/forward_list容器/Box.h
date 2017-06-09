@@ -23,5 +23,26 @@ public:
 	friend ostream& operator << (ostream& out, const Box& box);
 };
 
+inline istream& operator >> (istream& in, Box& box)
+{
+	cout << "Enter box length ,width & height separated by spaces - Ctrl+Z to end: " << endl;
+	size_t value;
+	in >> value;
+	if (in.eof()) return in;
+
+	box.length = value;
+	in >> value;
+	box.width = value;
+	in >> value;
+	box.height = value;
+	return in;
+}
+
+inline ostream& operator << (ostream& out, const Box& box)
+{
+	out << "Box(" << box.length << "," << box.width << "," << box.height << ")";
+	return out;
+}
+
 
 #endif // BOX_H

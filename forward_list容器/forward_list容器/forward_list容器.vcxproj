@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoxDemo.cpp" />
     <ClCompile Include="forward_list.cpp" />
   </ItemGroup>
   <ItemGroup>
