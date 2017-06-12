@@ -87,20 +87,20 @@ int main()
 
 			while (true)
 			{
-				operators.push(exp[index++]);//入栈字符
+				operators.push(exp[index++]);//入栈算符
 
 				size_t i{};//字符串位置
 				operands.push(stod(exp.substr(index), &i));//入栈第二个算数
-				index += i;
+				index += i;//指向算数后的运算符
 				
 				if (index == exp.length())//公式结尾
 				{
-					while (!operators.empty())
+					while (!operators.empty())//当算符非空时
 						execute(operators, operands);
 					break;
 				}
 
-				//执行到这说明有第二个算符
+				//当i位置运算符优先级高于栈顶时，执行优先运算（只运算一步）
 				while (!operators.empty() && precedence(exp[index]) <= precedence(operators.top()))
 					execute(operators, operands);
 			}
